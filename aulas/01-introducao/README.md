@@ -1,4 +1,4 @@
-# ntrodução à linguagem C
+# Introdução à linguagem C
 
 Neste módulo, vamos conhecer a estrutura básica de um programa em C, escrever nosso primeiro código e aprender como compilá-lo e executá-lo.
 
@@ -12,7 +12,6 @@ O exemplo [hello.c](hello.c) contém um programa simples que exibe uma mensagem 
 int main(void)
 {
     printf("Hello, World!\n");
-
     return 0;
 }
 ```
@@ -31,7 +30,7 @@ Define a função principal do programa. Quando executamos um programa C, normal
 
 - `int` indica que a função é do tipo inteiro.
 - `main` é o nome da função.
-- `void`, indica que ela não recebe argumentos (opcional).
+- `void` (opcional) indica que ela não recebe argumentos.
 
 #### `printf("Hello, World!\n");`
 
@@ -46,6 +45,21 @@ Encerra a função `main()` e indica término bem-sucedido do programa ao ambien
 O valor do return pode ser utilizado pelo sistema ou por outro programa para verificar o resultado da execução. Em geral, zero indica sucesso, enquanto valores diferentes são utilizados para indicar falha.
 
 O uso de `return 0` é opcional desde o padrão C99. Mesmo sendo opcional, é recomendado colocar o return 0; de forma explícita para manter a clareza e a compatibilidade com compiladores ou estilos de código mais antigos.
+
+Por fim, a estrutura principal de um código C é:
+
+```c
+#include <stdio.h>
+
+int main() {
+
+    return 0;
+}
+```
+
+Escreva/copie essa estrutura toda vez que criar um novo arquivo C.
+
+> **Nota:** Neste primeiro momento, você não precisa entender todos os detalhes dessa estrutura. O mais importante é reconhecer onde o código será escrito e por onde sua execução começa. Posteriormente, vamos entender melhor cada parte, aos poucos, conforme ela se tornar necessária. Por enquanto, use este exemplo como ponto de partida para escrever e executar seus próprios programas.
 
 ## 2. Execução
 
