@@ -258,3 +258,254 @@ Os especificadores de tipo para o scanf são:
 | %s            | string |
 
 É importante observar que os especificadores de leitura nem sempre são iguais aos de saída. Por exemplo, para ler um `float`, utilizamos `%f`; para ler um `double`, utilizamos `%lf`.
+
+### 6. Modificadores de tipo
+
+Os tipos inteiros possuem variações que permitem representar diferentes faixas de valores. Para isso, utilizamos os modificadores short, long, long long, signed e unsigned.
+
+Os modificadores se dividem em dois grupos:
+
+- **Modificadores de tamanho:** `short`, `long` e `long long`.
+- **Modificadores de sinal:** `signed` e `unsigned`.
+
+Os modificadores de tamanho alteram a faixa de valores que um inteiro pode assumir.
+
+| Tipo          | Uso geral                                               | Tamanho comum |
+| ------------- | ------------------------------------------------------- | ------------: |
+| int           | Inteiros de uso geral                                   |       4 bytes |
+| short int     | Inteiros com faixa menor ou igual à de int              |       2 bytes |
+| long int      | Inteiros com faixa mínima garantida maior que a de int  |  4 ou 8 bytes |
+| long long int | Inteiros com faixa mínima garantida maior que a de long |       8 bytes |
+
+Os tamanhos apresentados são comuns, mas podem variar conforme o sistema e o compilador. Por exemplo, em alguns sistemas, int e long ocupam 4 bytes, enquanto em outros long ocupa 8 bytes.
+
+Os modificadores de sinal determinam quais valores inteiros podem ser representados.
+
+| Modificador | Valores representados       | Exemplo    |
+| ----------- | --------------------------- | ---------- |
+| `signed`    | Negativos, zero e positivos | -10, 0, 25 |
+| `unsigned`  | Zero e positivos            | 0, 10, 25  |
+
+Em C, os tipos inteiros apresentados são signed por padrão quando o sinal não é especificado. Portanto, estas declarações são equivalentes:
+
+```c
+int temperatura = -10;
+signed int temperatura = -10;
+```
+
+Já o tipo unsigned int representa apenas valores não negativos:
+
+```c
+unsigned int moedas = 50;
+unsigned int pontos = 100;
+```
+
+Também podemos combinar os modificadores:
+
+```c
+short int idade = 19;
+unsigned short int quantidade = 500;
+long int populacao = 100000L;
+long long int distancia = 9000000000LL;
+unsigned long long int total = 10000000000ULL;
+```
+
+Quanto maior a quantidade de bits disponível, maior pode ser a faixa de valores representada. Em uma implementação na qual int ocupa 32 bits, por exemplo:
+
+| Tipo         |   Valor mínimo |  Valor máximo |
+| ------------ | -------------: | ------------: |
+| int          | -2.147.483.648 | 2.147.483.647 |
+| unsigned int |              0 | 4.294.967.295 |
+
+Assim como os tipos básicos, suas variações precisam de especificadores adequados ao utilizar printf() e scanf().
+
+| Tipo                   | printf | scanf |
+| ---------------------- | ------ | ----- |
+| short int              | %hd    | %hd   |
+| unsigned short int     | %hu    | %hu   |
+| int                    | %d     | %d    |
+| unsigned int           | %u     | %u    |
+| long int               | %ld    | %ld   |
+| unsigned long int      | %lu    | %lu   |
+| long long int          | %lld   | %lld  |
+| unsigned long long int | %llu   | %llu  |
+
+Utilizar um especificador incompatível com o tipo esperado pode causar comportamento indefinido, portanto é importante prestar atenção a esses detalhes.
+
+#### Quando usar cada tipo?
+
+- `int`: para valores comuns, idades, notas e contadores.
+- `short`: quando uma faixa menor for suficiente e houver motivo para escolher essa variante.
+- `long` ou `long long`: quando for necessário representar números maiores, verificando os limites disponíveis.
+- `unsigned`: quando a faixa sem sinal for adequada ao problema, como em determinadas operações com bits.
+
+Na maioria dos exercícios iniciais, int será suficiente. O mais importante é escolher um tipo que consiga representar os valores necessários.
+
+### 7. Operadores
+
+O arquivo [operadores.c](operadores.c) apresenta os operadores utilizados para calcular valores, modificar variáveis e comparar condições.
+
+#### 7.1 Operadores aritméticos
+
+São utilizados para realizar operações matemáticas.
+
+| Operador | Operação                 |
+| -------- | ------------------------ |
+| +        | Adição                   |
+| -        | Subtração                |
+| \*       | Multiplicação            |
+| /        | Divisão                  |
+| %        | Resto da divisão inteira |
+
+Exemplo:
+
+```c
+int a = 10, b = 3;
+
+printf("Soma: %d\n", a + b);
+printf("Subtração: %d", a - b);
+printf("Multiplicação: %d", a * b);
+printf("Divisão: %d\n", a / b);
+printf("Resto: %d\n", a % b);
+```
+
+Saída:
+
+```bash
+Soma: 13
+Subtração: 7
+Multiplicação: 30
+Divisão: 3
+Resto: 1
+```
+
+Quando os dois valores da divisão são inteiros, a parte fracionária é descartada. Para obter casas decimais, utilize um valor de ponto flutuante:
+
+```c
+printf("%d\n", 10 / 3);       // 3
+printf("%.2f\n", 10.0 / 3);   // 3.33
+```
+
+#### 7.2 Operadores de atribuição
+
+Permitem realizar uma operação com o valor atual de uma variável e atribuir o resultado a ela mesma.
+
+por exemplo:
+
+```c
+int pontos = 10;
+
+pontos += 5;
+pontos -= 3;
+pontos *= 2;
+```
+
+É o mesmo que:
+
+```c
+pontos = pontos + 5;
+pontos = pontos - 3;
+pontos = pontos * 2;
+```
+
+Esses operadores são úteis para atualizar contadores, acumular valores e modificar variáveis sem precisar repetir seu nome em uma expressão de atribuição.
+
+#### 7.3. Incremento e decremento
+
+Os operadores `++` e `--` aumentam ou diminuem o valor de uma variável inteira em uma unidade.
+
+| Operador | Nome           | Efeito                                                |
+| -------- | -------------- | ----------------------------------------------------- |
+| `++x`    | Pré-incremento | Incrementa `x` antes de produzir o valor da expressão |
+| `x++`    | Pós-incremento | Produz o valor atual de `x` e depois o incrementa     |
+| `--x`    | Pré-decremento | Decrementa `x` antes de produzir o valor da expressão |
+| `x--`    | Pós-decremento | Produz o valor atual de `x` e depois o decrementa     |
+
+Observe a diferença:
+
+```c
+int x = 5;
+
+printf("%d\n", ++x);  // 6: incrementa antes de usar o valor
+printf("%d\n", x++);  // 6: usa o valor atual e depois incrementa
+printf("%d\n", x);    // 7: valor após o pós-incremento
+```
+
+Quando utilizados como instruções isoladas, `x++` e `++x` produzem o mesmo efeito final sobre a variável. A diferença importa quando o valor da expressão também é utilizado em outra operação.
+
+Esses operadores são muito comuns em contadores e laços de repetição, como `for` e `while`.
+
+#### 7.4. Operadores relacionais
+
+Comparam dois valores e verificam se determinada relação é verdadeira ou falsa.
+
+| Operador | Significado      | Exemplo | Resultado |
+| -------- | ---------------- | ------- | --------- |
+| ==       | Igual a          | 5 == 5  | 1         |
+| !=       | Diferente de     | 5 != 3  | 1         |
+| >        | Maior que        | 5 > 3   | 1         |
+| <        | Menor que        | 5 < 3   | 0         |
+| >=       | Maior ou igual a | 5 >= 5  | 1         |
+| <=       | Menor ou igual a | 3 <= 5  | 1         |
+
+Em C, expressões relacionais produzem `1` quando são verdadeiras e `0` quando são falsas.
+
+```c
+int idade = 19;
+
+printf("%d\n", idade >= 18);  // 1: verdadeiro
+printf("%d\n", idade < 18);   // 0: falso
+```
+
+Esses operadores serão utilizados frequentemente em estruturas condicionais, como `if` e `switch`, e em expressões de controle dos laços de repetição.
+
+> **Atenção:** = e == possuem funções diferentes. O primeiro atribui um valor a uma variável; o segundo compara dois valores.
+
+```c
+int x = 5;     // Atribui 5 a x
+printf("%d\n", x == 5);  // Compara x com 5
+```
+
+#### 7.5. Operadores lógicos
+
+Permitem combinar condições ou inverter seu resultado. Em C, são três os principais operadores lógicos:
+
+| Operador | Nome       | Funcionamento                                          |
+| -------- | ---------- | ------------------------------------------------------ |
+| `&&`     | E lógico   | Verdadeiro quando ambas as condições são verdadeiras   |
+| `\|\|`   | OU lógico  | Verdadeiro quando pelo menos uma condição é verdadeira |
+| `!`      | NÃO lógico | Inverte o resultado lógico de uma condição             |
+
+Considere as seguintes condições:
+
+```c
+int idade = 19;
+int tem_ingresso = 1;
+
+printf("%d\n", idade >= 18 && tem_ingresso); // 1
+printf("%d\n", idade < 18 || tem_ingresso);  // 1
+printf("%d\n", !(idade >= 18));              // 0
+```
+
+No primeiro caso, ambas as condições são verdadeiras, então o resultado é `1`. No segundo, basta que uma delas seja verdadeira. No terceiro, o operador `!` inverte o resultado da condição.
+
+Podemos resumir o comportamento dos operadores lógicos com a tabela abaixo, considerando `1` como verdadeiro e `0` como falso:
+
+|   A |   B | A && B | A \|\| B |
+| --: | --: | -----: | -------: |
+|   0 |   0 |      0 |        0 |
+|   0 |   1 |      0 |        1 |
+|   1 |   0 |      0 |        1 |
+|   1 |   1 |      1 |        1 |
+
+O operador `!` funciona com apenas uma condição: `!0` resulta em `1`, enquanto `!1` resulta em `0`.
+
+**Curiosidade:** em C, qualquer valor diferente de zero é considerado verdadeiro em uma condição, enquanto zero é considerado falso. Os operadores relacionais e lógicos produzem `0` ou `1`, mas as condições não precisam ser expressas exclusivamente por esses números.
+
+## 💡 Recomendações de estudo
+
+- Leia um arquivo por vez e execute os exemplos no seu ambiente.
+- Antes de executar, tente prever a saída de cada instrução.
+- Altere os valores das variáveis e observe como os resultados mudam.
+- Experimente criar exemplos próprios, em vez de apenas reproduzir os apresentados.
+- Consulte os comentários do código para identificar a função de cada parte e utilize este README para revisar os conceitos.
