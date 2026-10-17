@@ -14,7 +14,7 @@ int main() {
   //      │     └────────> Endereço da variável idade
   //      └──────────────> Especificador do tipo int
   
-  // O operador & retorna o endereço da variável na memória
+  // O operador & acessa o endereço da variável na memória
   // O scanf altera o valor nesse endereço para o valor recebido
   
   // O scanf também permite receber mais de um valor de uma vez:
