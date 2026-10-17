@@ -59,7 +59,7 @@ int main() {
 
 Escreva/copie essa estrutura toda vez que criar um novo arquivo C.
 
-> **Nota:** Neste primeiro momento, você não precisa entender todos os detalhes dessa estrutura. O mais importante é reconhecer onde o código será escrito e por onde sua execução começa. Posteriormente, vamos entender melhor cada parte, aos poucos, conforme ela se tornar necessária. Por enquanto, use este exemplo como ponto de partida para escrever e executar seus próprios programas.
+> Neste primeiro momento, você não precisa entender todos os detalhes dessa estrutura. O mais importante é reconhecer onde o código será escrito e por onde sua execução começa. Posteriormente, será explicada cada parte, aos poucos, conforme ela se tornar necessária. Por enquanto, use este exemplo como ponto de partida para escrever e executar seus próprios programas.
 
 ## 2. Execução
 
