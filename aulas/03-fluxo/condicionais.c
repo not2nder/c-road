@@ -36,9 +36,31 @@ int main(void) {
   else {
     printf("Reprovado\n");
   }
+  
+  /* ----------------------- */
+  /* 3. Condicionais aninhadas */
+  /* ----------------------- */
+
+  int idade_aluno = 20;
+  int matriculado = 1;
+
+  // Um if pode existir dentro de outro if
+  if (idade_aluno >= 18) {
+    printf("Maior de idade\n");
+
+    // Esta condição só é verificada se a primeira for verdadeira
+    if (matriculado == 1) {
+      printf("Aluno matriculado\n");
+    }
+  }
+
+  // também é equivalente a:
+  if (idade_aluno >= 18 && matriculado == 1) {
+    printf("Aluno matriculado\n"); 
+  }
 
   /* --------------------- */
-  /* 3. Operador ternário  */
+  /* 4. Operador ternário  */
   /* --------------------- */
 
   /*
@@ -55,7 +77,7 @@ int main(void) {
   //                                                             └───► Último caso
 
   /* ---------------- */
-  /* 4. switch-case   */
+  /* 5. switch-case   */
   /* ---------------- */
 
   int dia = 5;
