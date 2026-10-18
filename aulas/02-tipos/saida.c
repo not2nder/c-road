@@ -41,7 +41,6 @@ int main() {
   // O mesmo se aplica para Strings:
   printf("|%10s|\n", "Oi");
   printf("|%-10s|\n", "Oi");
-  
 
   return 0;
 }
