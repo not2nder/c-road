@@ -14,7 +14,7 @@ int main() {
     if (lista[i] == chave) {
       achado = 1;
       indice = i; // Se quiser salvar o índice (opcional)
-      break;
+      break;      // Parar quando achar o elemento
     }
   }
 
@@ -29,9 +29,10 @@ int main() {
   achado = 0;
   chave = 7;
 
+  //           ┌────► enquanto estiver percorrendo e não tiver achado
   while (i < 4 && !achado) {
     if (numeros[i] == chave) {
-      achado = 1;
+      achado = 1; // Invalida a condição do while e para o loop
     } else {
       i++;
     }
