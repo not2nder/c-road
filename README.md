@@ -1,48 +1,68 @@
-# <div align="center">C-ROAD</div>
+## Sobre o projeto
 
-<p align="center">
-Um repositório de estudos, focado na linguagem C, com o objetivo de reunir explicações, exemplos práticos, anotações e exercícios em um só lugar, acompanhando a sequência de conteúdos da disciplina de Linguagem de Programação I.
-</p>
+Este é um repositório dedicado ao estudo da linguagem C, desenvolvido para acompanhar os conteúdos da disciplina de Linguagem de Programação I (LP1).
 
-<p align="center">
-  <img src="https://img.shields.io/badge/C-blue?logo=c" />
-  <img src="https://img.shields.io/badge/Status-Em%20desenvolvimento-yellow">
-</p>
+A ideia é reunir o conteúdo estudado ao longo das aulas em um único lugar, com explicações acessíveis, exemplos comentados e exercícios.
 
-## Sobre
+O material é voltado para estudantes que estão começando a programar em C, mas também pode servir como referência para revisar conceitos, consultar a sintaxe da linguagem e esclarecer dúvidas durante o desenvolvimento de programas.
 
-A proposta é construir um material de consulta acessível para estudantes que estão dando os primeiros passos na programação, mas que também possa servir como referência para revisar conceitos e aprofundar conhecimentos.
+### Objetivos
 
-O projeto tem como objetivos:
+- **Organizar o aprendizado:** acompanhar a sequência dos conteúdos da disciplina, do básico aos conceitos mais avançados.
+- **Explicar com clareza:** apresentar os conceitos de forma gradual, utilizando uma linguagem acessível, visual e exemplos práticos.
+- **Aprender na prática:** disponibilizar códigos comentados que possam ser executados, modificados e explorados.
+- **Consolidar conhecimentos:** reunir exercícios vistos em sala para praticar os conteúdos estudados.
+- **Registrar descobertas:** documentar observações, detalhes da linguagem e erros comuns encontrados durante os estudos.
+- **Construir em conjunto:** permitir que outros estudantes contribuam com correções, sugestões e melhorias.
 
-- Organizar os conteúdos seguindo a sequência das aulas.
-- Explicar conceitos de forma simples, gradual e didática.
-- Apresentar exemplos de código comentados e fáceis de reproduzir.
-- Reunir exercícios para praticar e consolidar o aprendizado.
-- Registrar anotações, observações e erros comuns encontrados durante os estudos.
-- Incentivar a colaboração entre estudantes, permitindo correções e melhorias no material.
+## Organização do repositório
 
-## 📂 Organização do projeto
+O projeto está dividido em duas áreas principais:
 
-O repositório é dividido por módulos, cada um dedicado a um conteúdo da disciplina.
+- `aulas/`: exemplos e materiais organizados por conteúdo da disciplina.
+- `exercicios/`: atividades práticas separadas pelos mesmos tópicos, facilitando a associação entre teoria e prática.
+
+A estrutura atual segue esta organização:
 
 ```text
+C-ROAD/
 ├── README.md
-├── docs/
 ├── aulas/
 │   ├── 01-introducao/
-│   ├── 02-tipos-variaveis-io/
+│   ├── 02-tipos/
 │   ├── 03-condicionais/
 │   ├── 04-repeticao/
-│   ├── 05-arranjos/
-│   └── 06-strings/
-├── exercicios/
-│   ├── 01-introducao/
-│   ├── 02-tipos-variaveis-io/
-│   ├── 03-condicionais/
-│   ├── 04-repeticao/
-│   ├── 05-arranjos/
-│   └── 06-strings/
+│   └── ...
+└── exercicios/
+    ├── 01-introducao/
+    ├── 02-tipos-variaveis-io/
+    ├── 03-condicionais/
+    ├── 04-repeticao/
+    └── ...
 ```
 
-Alguns diretórios e arquivos ainda poderão ser adicionados ou reorganizados conforme o projeto evoluir.
+A estrutura poderá ser expandida ou reorganizada conforme novos conteúdos forem estudados e o projeto evoluir.
+
+## Como utilizar
+
+1. Escolha um módulo de `aulas/` de acordo com o conteúdo que deseja estudar.
+2. Leia as explicações e observe os exemplos apresentados.
+3. Reproduza os códigos no seu ambiente de desenvolvimento.
+4. Experimente modificar os exemplos para entender como o programa se comporta.
+5. Resolva os exercícios correspondentes em `exercicios/` para praticar o que aprendeu.
+
+Não se preocupe em entender tudo de primeira. Programe, teste, erre, investigue e tente novamente. A prática faz parte do processo de aprendizado.
+
+## Contribuições
+
+Este repositório também pode ser construído em conjunto. Se você encontrar algum erro, perceber que uma explicação pode ficar mais clara ou quiser sugerir um exemplo ou exercício, contribuições são bem-vindas.
+
+Você pode contribuir por meio de sugestões, correções ou melhorias no material existente.
+
+O objetivo é manter um material de estudo útil, compreensível e em constante evolução.
+
+---
+
+<p align="center">
+  Feito para estudar, praticar e aprender, um passo de cada vez.
+</p>
