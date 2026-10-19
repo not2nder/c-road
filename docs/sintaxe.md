@@ -127,6 +127,16 @@ Por exemplo, este programa é válido, mesmo com tudo em uma única linha:
 int main(void) { printf("Olá, mundo!\n"); return 0; }
 ```
 
+Inclusive, Um exemplo curioso é o [donut.c](https://www.a1k0n.net/2006/09/15/obfuscated-c-donut.html?utm_source=chatgpt.com), um programa que ficou conhecido por organizar seu próprio código-fonte visualmente na forma de um donut.
+
+<div align=center>
+    <img src="https://miro.medium.com/v2/resize:fit:1400/0*OCj_olrm9hqOG5sn.png" height="290px">
+</div>
+
+O exemplo demonstra que um programa pode ser sintaticamente válido mesmo quando sua formatação foge completamente das convenções habituais. Isso não significa que a formatação seja inútil: ela é essencial para facilitar a leitura, a manutenção e a compreensão do código.
+
+**Observação:** essa versão utiliza construções de C antigo e pode exigir opções específicas de compilação ou adaptações para funcionar com compiladores modernos. As instruções de compilação devem ser consultadas junto à versão do código utilizada.
+
 Entretanto, separar as instruções facilita a leitura:
 
 ```c
