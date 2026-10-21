@@ -232,6 +232,14 @@ O Bubble Sort é útil para compreender a lógica de ordenação, embora não se
 
 A busca linear é um algoritmo que percorre um array elemento por elemento até encontrar um valor desejado, chamado de **chave de busca**, ou até chegar ao final sem encontrá-lo.
 
+<div align=center>
+<img src="https://sushrutkuchik.wordpress.com/wp-content/uploads/2020/05/linear_search.gif?w=438" style="border-radius:10px;margin-block:20px">
+</div>
+
+A quantidade de elementos percorridos varia conforme o tamanho do vetor e a posição do elemento.
+
+Considerando um vetor de tamanho n, a quantidade máxima de iterações será n, o que pode funcionar para vetores pequenos, mas se tornar menos eficiente para vetores maiores.
+
 Considere:
 
 ```c
