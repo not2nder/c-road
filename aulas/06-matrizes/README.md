@@ -325,20 +325,7 @@ Observe que a estrutura dos laços não muda. A diferença está na operação a
 Também podemos multiplicar os elementos correspondentes das duas matrizes:
 
 $$
-\begin{bmatrix}
-8 & 7\\
-4 & 1
-\end{bmatrix}
-\times
-\begin{bmatrix}
-5 & 3\\
-2 & 9
-\end{bmatrix}
-=
-\begin{bmatrix}
-40 & 21\\
-8 & 9
-\end{bmatrix}
+\begin{bmatrix}8 & 7\\4 & 1\end{bmatrix}\times\begin{bmatrix}5 & 3\\2 & 9\end{bmatrix}=\begin{bmatrix}40 & 21\\8 & 9\end{bmatrix}
 $$
 
 A implementação é:
