@@ -75,5 +75,27 @@ int main() {
 
       printf("\n"); // quebra de linha para cada linha da matriz
   }
+  
+  /* ────────────────── */
+  /* Preenchendo Matriz */
+  /* ────────────────── */
+
+  int tabela[2][2];
+
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      printf("Linha %d, coluna %d: ", i, j);
+      scanf("%d", &tabela[i][j]);
+    }
+  }
+
+  // Imprimindo valores:
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      printf("%d ", tabela[i][j]);
+    }
+    printf("\n");
+  }
+
   return 0;
 }
