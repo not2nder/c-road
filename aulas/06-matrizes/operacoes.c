@@ -41,19 +41,39 @@ int main() {
   }
 
   // O princípio se aplica a outras operações:
-  printf("Multiplicação de matrizes: \n");
+  printf("Subtracação de matrizes: \n");
   for (int i = 0; i < 2; i++) {
     for (int j = 0; j < 2; j++) {
-      printf("%02d ", matriz_a[i][j] * matriz_b[i][j]);
+      printf("%02d ", matriz_a[i][j] - matriz_b[i][j]);
       //                             │
       //                             └────> mudança apenas no operador 
     }
     printf("\n");
   }
 
-  /* ---------------------------------- */
-  /* Armazenando operações em variáveis */
-  /* ---------------------------------- */
+  printf("Multiplicação de matrizes: \n");
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      printf("%02d ", matriz_a[i][j] * matriz_b[i][j]);
+    }
+    printf("\n");
+  }
+
+  // Multiplicação por por Escalar:
+  // se resume a multiplicar os elementos individuais por um valor K
+
+  int k = 3;
+
+  for (int i = 0; i < 2; i++) {
+    for (int j = 0; j < 2; j++) {
+      printf("%02d ", matriz_a[i][j] * k);
+    }
+    printf("\n");
+  }
+
+  /* --------------------------------- */
+  /* Armazenando operações de matrizes */
+  /* --------------------------------- */
 
   int matriz_c[2][2];
 
