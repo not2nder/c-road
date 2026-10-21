@@ -197,6 +197,10 @@ Durante uma passagem, o algoritmo compara os elementos vizinhos:
 
 Ao final dessa passagem, o maior elemento chega à última posição.
 
+<div align="center">
+    <img style="border-radius:5px; margin-block:20px;" width="550px" src="https://miro.medium.com/1*GUkhhrPDfgdvvwVFo-il1g.gif" />
+</div>
+
 O algoritmo repete o processo, reduzindo a quantidade de elementos que precisam ser comparados a cada passagem.
 
 ```c
