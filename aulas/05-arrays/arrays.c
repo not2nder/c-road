@@ -16,25 +16,26 @@ int main() {
   /* ────────── */
 
   //     ┌────> nome
-  //     │            ┌────► elementos armazenados
+  //     │            ┌────► elementos
   int medias[4] = {7, 7, 8, 9};
+  //         │
   //         └────► tamanho (quantidade de elementos)
 
-  // Arrays podem ser declarados sem inicialização.
-  // Nesse caso, os elementos de um array local têm valores indeterminados.
-
+  // Elementos de arrays sem inicialização
+  // possuem valores indeterminados.
   int numeros[5];
-  int vetor[5] = {1, 2, 3}; // Os elementos restantes começam em zero
 
-  int lista[5] = {0};       // Todos os elementos começam em zero
+  int vetor[5] = {1, 2, 3}; // Os elementos restantes começam em zero
+  int lista[5] = {0};       // Já aqui, todos os elementos começam em zero
 
   /* ─────────────────── */
   /* Acessando elementos */
   /* ─────────────────── */
 
-  /* Sintaxe básica: vetor[índice]
+  /*
+    Sintaxe: vetor[índice]
 
-    Os índices de um array começam em 0 e vão até n - 1,
+    Os índices começam em 0 e vão até n - 1,
     sendo n a quantidade de elementos.
 
               ┌───┬───┬───┬───┐
@@ -43,28 +44,36 @@ int main() {
                 v   v   v   v
     ÍNDICES     0   1   2   3
 
-    Se um vetor tem tamanho 5, os índices vão de 0 a 4.
-    Acessar um índice fora desses limites causa comportamento indefinido.
+    Um array de 5 elementos possui índices de 0 a 4.
   */
 
   printf("Elemento 1: %d\n", notas[0]);
   printf("Elemento 2: %d\n", notas[1]);
   printf("Elemento 3: %d\n", notas[2]);
 
+  // O índice também pode ser uma variável ou expressão.
+  int i = 1;
+
+  printf("Elemento atual: %d\n", notas[i]);        // Índice 1: valor 7
+  printf("Próximo elemento: %d\n", notas[i + 1]);  // Índice 2: valor 9
+  printf("Elemento anterior: %d\n", notas[i - 1]); // Índice 0: valor 10
+
+  // O índice calculado precisa estar dentro dos limites do array.
+  // Acessar uma posição inválida causa comportamento indefinido.
+
   /* ───────────────────── */
   /* Modificando elementos */
   /* ───────────────────── */
 
-  // Basta atribuir o novo valor ao índice desejado.
-
   //         ┌────► Novo valor
   notas[0] = 6;
   //    └────► Posição a ser alterada
+  
+  // notas = {6, 7, 9, 8}
 
-  // Notas = {6, 7, 9, 8}
+  /* ------------------------------------------- */
 
-  // Também podemos modificar um elemento com scanf().
-
+  // Também podemos modificar elementos com scanf().
   printf("Informe sua nota: ");
   scanf("%d", &notas[0]);
   //             └────► Endereço da posição a ser alterada
@@ -73,41 +82,35 @@ int main() {
   /* Iteração */
   /* ──────── */
 
-  // Iterar é percorrer os elementos de um array.
-  // Isso pode ser feito por meio de laços de repetição.
-
-  //          ┌────► Começa no índice 0
-  //          │      ┌────► Percorre os 4 elementos
+  // Percorrendo os elementos com um laço
   for (int i = 0; i < 4; i++) {
     printf("Elemento na posição %d: %d\n", i, notas[i]);
-    //                                              └────► Acessa o elemento da posição atual
   }
 
-  // Preenchendo um array com valores informados pelo usuário:
+  // Preenchendo um array com valores informados pelo usuário
   for (int i = 0; i < 5; i++) {
     printf("Informe um número: ");
     scanf("%d", &vetor[i]);
-    //             └────► Endereço da posição a ser preenchida
   }
 
   /* ─────────────────────── */
   /* Quantidade de elementos */
   /* ─────────────────────── */
 
-  // Diferente do Python, C não possui um método len()
-  // para obter diretamente a quantidade de elementos de um array.
-  // Podemos calcular essa quantidade usando sizeof:
-  
+  // sizeof retorna o tamanho em bytes.
   int quantidade = sizeof(notas) / sizeof(notas[0]);
 
-  // sizeof(notas)     -> tamanho total do array em bytes
-  // sizeof(notas[0])  -> tamanho de um elemento em bytes
-  
-  // Dividindo o tamanho total pelo tamanho de um elemento, obtemos a quantidade de elementos.
+  /* Exemplo: se cada int ocupa 4 bytes:
+     
+     sizeof(notas)    -> 4 elementos * 4 bytes = 16 bytes
+     sizeof(notas[0]) -> 1 elemento = 4 bytes
+     
+     16 / 4 = 4 elementos
+  */
 
   printf("Quantidade de elementos: %d\n", quantidade);
 
-  // Também podemos usar esse cálculo no laço de repetição:
+  // Podemos utilizar essa quantidade para percorrer o array.
   for (int i = 0; i < quantidade; i++) {
     printf("%d\n", notas[i]);
   }

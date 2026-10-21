@@ -68,6 +68,22 @@ A sintaxe básica é `nome_do_array[índice]`.
 
 > **Atenção:** acessar uma posição fora dos limites do array causa comportamento indefinido. Em um array de quatro elementos, por exemplo, `notas[4]` é inválido, pois o último índice é `3`.
 
+O índice não precisa ser um núero fixo: podemos utilizar variáveis e expressões matemáticas para determinar qual posição queremos acessar.
+
+```c
+int numeros[4] = {10, 20, 30, 40};
+
+int indice = 1;
+
+printf("%d\n", numeros[indice]);     // índice = 1: 20
+printf("%d\n", numeros[indice + 1]); // índice = 2: 30
+printf("%d\n", numeros[indice - 1]); // índice = 0: 10
+```
+
+Nesse exemplo, como `indice` vale 1, a expressão i + 1 resulta em 2. Portanto, numeros[i + 1] acessa o elemento de índice 2, cujo valor é 30.
+
+Isso é especialmente útil quando precisamos trabalhar com posições próximas dentro de um array, como comparar um elemento com o seu vizinho.
+
 ## 3. Modificando elementos
 
 Podemos modificar um elemento atribuindo um novo valor à posição desejada:
@@ -119,7 +135,7 @@ Nesse exemplo, cada número informado é armazenado em uma posição diferente d
 
 Diferentemente do Python, C não possui um método `len()` para obter diretamente a quantidade de elementos de um array.
 
-Podemos calcular essa quantidade utilizando o operador `sizeof`, que retorna o tamanho em bytes de um objeto:
+Podemos calcular essa quantidade utilizando o operador `sizeof`, que retorna o tamanho de um objeto em bytes.
 
 ```c
 int notas[] = {10, 7, 9, 8};
@@ -132,16 +148,34 @@ printf("Quantidade de elementos: %d\n", quantidade);
 A expressão funciona da seguinte maneira:
 
 - `sizeof(notas)` retorna o tamanho total do array em bytes.
-- `sizeof(notas[0])` retorna o tamanho de um elemento em bytes.
+- `sizeof(notas[0])` retorna o tamanho de um único elemento em bytes.
 - A divisão desses valores resulta na quantidade de elementos.
 
-Podemos utilizar essa quantidade para percorrer o array sem precisar informar manualmente o número de elementos:
+Imagine que cada elemento do tipo `int` ocupe 4 bytes, como acontece em muitas implementações de C. Como o array possui quatro elementos, podemos estimar seus tamanhos da seguinte forma:
+
+$$
+\text{4 bytes} \times \text{4 elementos} = \text{16 bytes}
+$$
+
+Com esses valores, a expressão para encontrar o tamanho do array se torna:
+
+$$
+\frac{\text{tamanho total}}{\text{tamanho de um elemento}} = \frac{\text{16 bytes}}{\text{4 bytes}} = 4
+$$
+
+Ou seja, dividimos o tamanho total do array pelo tamanho de um elemento para descobrir quantos elementos ele contém. As unidades em bytes se cancelam na divisão, e o resultado é a quantidade de elementos.
+
+**Importante:** os 4 bytes por `int` são apenas um exemplo. O tamanho de um tipo pode variar conforme a implementação da linguagem C. Por isso, utilizar `sizeof` é mais confiável do que assumir um tamanho fixo.
+
+Podemos utilizar a quantidade calculada para percorrer o array sem precisar informar manualmente o número de elementos:
 
 ```c
 for (int i = 0; i < quantidade; i++) {
     printf("%d\n", notas[i]);
 }
 ```
+
+Assim, se a quantidade de elementos mudar, o laço continuará funcionando sem que seja necessário alterar manualmente seu limite, desde que o cálculo seja feito sobre o próprio array.
 
 ## 6. Bubble Sort
 
