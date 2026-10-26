@@ -16,8 +16,8 @@ int main(void) {
 
   // Matriz: organiza valores em linhas e colunas.
   int matriz[LINHAS][COLUNAS] = {
-      {1, 2, 3},
-      {4, 5, 6}
+    {1, 2, 3},
+    {4, 5, 6}
   };
 
   /* ────────────────────── */
@@ -70,7 +70,7 @@ int main(void) {
 
   for (int i = 0; i < LINHAS; i++) {
     for (int j = 0; j < COLUNAS; j++) {
-        printf("%d ", matriz[i][j]);
+      printf("%d ", matriz[i][j]);
     }
     printf("\n"); // quebra de linha após cada linha
   }
@@ -92,7 +92,7 @@ int main(void) {
 
   for (int i = 0; i < 2; i++) {
     for (int j = 0; j < 2; j++) {
-        printf("%d ", tabela[i][j]);
+      printf("%d ", tabela[i][j]);
     }
 
     printf("\n");
