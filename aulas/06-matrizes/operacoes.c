@@ -1,87 +1,89 @@
 #include <stdio.h>
 
-int main() {
-  int matriz_a[2][2] = {
-    {8,7},
-    {4,1}
+#define LINHAS 2
+#define COLUNAS 2
+
+int main(void) {
+  int matriz_a[LINHAS][COLUNAS] = {
+    {8, 7},
+    {4, 1}
   };
 
-  int matriz_b[2][2] = {
-    {5,3},
-    {2,9}
+  int matriz_b[LINHAS][COLUNAS] = {
+    {5, 3},
+    {2, 9}
   };
 
-  // Operações entre matrizes quadradas se resumem a:
-  // operar entre 2 matrizes de tamanho igual utilizando os mesmos índices
+  int resultado[LINHAS][COLUNAS];
 
-  /*
-    Soma, subtração e multiplicação elemento a elemento:
-    
-    A + B = │ 8 + 5 7 + 3 │ = │ 13 10 │
-            │ 4 + 2 1 + 9 │   │  6 10 │
+  // Nas operações elemento a elemento, utilizamos
+  // os mesmos índices nas duas matrizes.
 
-    As operações são realizadas entre elementos
-    que ocupam a mesma posição nas duas matrizes.
-  */
+  /* ────── */
+  /* Adição */
+  /* ────── */
 
-  // Soma:
-  printf("Soma das matrizes: \n");
-  for (int i = 0; i < 2; i++) {
-    for (int j = 0; j < 2; j++) {
-      //                         ┌────> elemento da matriz A
-      //                         │  
-      printf("%02d ", matriz_a[i][j] + matriz_b[i][j]);
-      //                                          │  
-      //               elemento da matriz B <─────┘ 
-      
-      // Ambos os elementos se encontram na mesma posição,
-      // portanto, são acessados pelo mesmo índice
+  printf("Adição:\n");
+
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      // Soma os elementos que ocupam a mesma posição.
+      resultado[i][j] = matriz_a[i][j] + matriz_b[i][j];
+
+      printf("%02d ", resultado[i][j]);
     }
     printf("\n");
   }
 
-  // O princípio se aplica a outras operações:
-  printf("Subtracação de matrizes: \n");
-  for (int i = 0; i < 2; i++) {
-    for (int j = 0; j < 2; j++) {
-      printf("%02d ", matriz_a[i][j] - matriz_b[i][j]);
-      //                             │
-      //                             └────> mudança apenas no operador 
+  /* ───────── */
+  /* Subtração */
+  /* ───────── */
+
+  printf("\nSubtração:\n");
+
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      resultado[i][j] = matriz_a[i][j] - matriz_b[i][j];
+      printf("%02d ", resultado[i][j]);
     }
     printf("\n");
   }
 
-  printf("Multiplicação de matrizes: \n");
-  for (int i = 0; i < 2; i++) {
-    for (int j = 0; j < 2; j++) {
-      printf("%02d ", matriz_a[i][j] * matriz_b[i][j]);
-    }
-    printf("\n");
-  }
+  /* ───────────────────────── */
+  /* Multiplicação por escalar */
+  /* ───────────────────────── */
 
-  // Multiplicação por por Escalar:
-  // se resume a multiplicar os elementos individuais por um valor K
-
+  // Um escalar é um único valor numérico.
+  // Aqui, cada elemento de A é multiplicado por k.
   int k = 3;
 
-  for (int i = 0; i < 2; i++) {
-    for (int j = 0; j < 2; j++) {
-      printf("%02d ", matriz_a[i][j] * k);
+  printf("\nMultiplicacao por escalar (%d):\n", k);
+
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      resultado[i][j] = matriz_a[i][j] * k;
+      printf("%02d ", resultado[i][j]);
     }
     printf("\n");
   }
 
-  /* --------------------------------- */
-  /* Armazenando operações de matrizes */
-  /* --------------------------------- */
+  /* ───────────────────────────────── */
+  /* Multiplicação elemento a elemento */
+  /* ───────────────────────────────── */
 
-  int matriz_c[2][2];
+  // Esta operação multiplica os elementos correspondentes.
+  // Ela NÃO é a multiplicação matricial convencional.
 
-  for (int i = 0; i < 2; i++) {
-    for (int j = 0; j < 2; j++) {
-      matriz_c[i][j] = matriz_a[i][j] * matriz_b[i][j];
+  printf("\nMultiplicacao elemento a elemento:\n");
+
+  for (int i = 0; i < LINHAS; i++) {
+    for (int j = 0; j < COLUNAS; j++) {
+      resultado[i][j] = matriz_a[i][j] * matriz_b[i][j];
+      printf("%02d ", resultado[i][j]);
     }
+    printf("\n");
   }
 
   return 0;
 }
+
